@@ -1,13 +1,15 @@
 package net.neuroactive.formation;
 
-public class Rectangle {
+public class Rectangle implements Comparable<Rectangle>{
 	Integer L;
 	Integer H;
+	Integer A;
 	
 	Rectangle(Integer length ,Integer height) {
 		super();
 		L = length;
 		H = height;
+		A = L * H;
 	}
 	
 	void print() {
@@ -17,5 +19,10 @@ public class Rectangle {
 			}
 			System.out.println();
 		}
+	}
+	
+	@Override
+	public int compareTo(Rectangle r) {
+		return this.A.compareTo(r.A);
 	}
 }
