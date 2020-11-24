@@ -19,8 +19,18 @@ public class Main {
 		
 		Rectangle thirdrect = rect.get(2);
 		for (Rectangle r : rect) {
-			System.out.println(r.A);
-			System.out.println(r.compareTo(thirdrect));
+			System.out.println("L'aire du rectangle n°" + (rect.indexOf(r) + 1) + " est " + r.A);
+			System.out.println("Si on le compare au n°3 :" + r.compareTo(thirdrect));
 		}
+		
+		System.out.println("Le plus grand rectangle est le n°" + (rect.indexOf(max(rect)) + 1));
 	}	
+	
+	static  <R extends Comparable<Rectangle>> Rectangle max(List<Rectangle> l) {
+		Rectangle f = l.get(0);
+		for (Rectangle n : l) {
+			if (f.A.compareTo(n.A)<0) {f=n;}
+		}
+		return f;
+	}
 }
